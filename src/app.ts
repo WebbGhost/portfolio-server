@@ -3,18 +3,16 @@ import morgan from 'morgan';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
 import cors from 'cors';
-import mongoSanitize  from 'express-mongo-sanitize'
+import mongoSanitize from 'express-mongo-sanitize';
 
 import rateLimit from 'express-rate-limit';
-import cookieParser from 'cookie-parser'
-
-
+import cookieParser from 'cookie-parser';
 
 import * as middlewares from './helpers/middlewares';
 import { ResponseBack } from './interfaces/MessageResponse';
 
-import healthCheck from './Routes/healthCheck'
-
+import healthCheck from './Routes/healthCheck';
+import aboutRouter from './Routes/aboutRouter';
 
 const app = express();
 
@@ -25,16 +23,15 @@ app.use(cookieParser());
 app.use(mongoSanitize());
 app.use(morgan('common'));
 app.use(helmet());
-app.use(mongoSanitize())
+app.use(mongoSanitize());
 
-app.use(cors({
-  origin: '*',
-}));
+app.use(
+  cors({
+    origin: '*',
+  })
+);
 dotenv.config();
 app.disable('x-powered-by');
-
-
-
 
 const limiter = rateLimit({
   max: 100,
@@ -46,7 +43,6 @@ app.use('/api', limiter);
 // Routes
 app.get<unknown, ResponseBack>('/', (req, res) => {
   res.status(200).json({
-
     status: 'success',
     data: {
       message: 'success',
@@ -56,9 +52,9 @@ app.get<unknown, ResponseBack>('/', (req, res) => {
 
 // Error Handling Middlewares
 
-app.use('/api/v1/',healthCheck)
+app.use('/api/v1/', healthCheck);
+app.use('/api/v1/', aboutRouter);
 app.use(middlewares.errorHandler);
 app.use(middlewares.notFound);
-
 
 export default app;
