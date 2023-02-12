@@ -2,11 +2,11 @@
   "name": "server",
   "version": "1.0.0",
   "description": "Hotel Booking Api",
-  "main": "./dist/application.js",
+  "main": "src/server.ts",
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "ts-node-dev --respawn --transpile-only src/server.ts",
+    "start": "node dist/server.js",
     "lint": "eslint src"
   },
   "author": "Shabir Khan",
