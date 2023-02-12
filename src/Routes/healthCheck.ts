@@ -1,7 +1,7 @@
-import express from 'express';
+import express, { Router } from 'express';
 import { emojiMe, healthCheck } from '../Controllers/healthCheckController';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 type HealthCheckResponse = {
   status: string;

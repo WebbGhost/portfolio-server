@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Application } from 'express';
 import morgan from 'morgan';
 import dotenv from 'dotenv';
 import helmet from 'helmet';
@@ -14,7 +14,7 @@ import { ResponseBack } from './interfaces/MessageResponse';
 import healthCheck from './Routes/healthCheck';
 import aboutRouter from './Routes/aboutRouter';
 
-const app = express();
+const app: Application = express();
 
 // Middlewares
 app.use(express.json({ limit: '10kb' }));

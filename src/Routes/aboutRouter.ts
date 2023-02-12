@@ -1,4 +1,4 @@
-import express from 'express';
+import express, { Router } from 'express';
 import {
   getAbouts,
   getSkills,
@@ -9,7 +9,7 @@ import {
   getEmails,
 } from '../Controllers/aboutController';
 
-const router = express.Router();
+const router: Router = express.Router();
 
 router.get('/abouts', getAbouts);
 router.get('/skills', getSkills);

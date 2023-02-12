@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "outDir": "dist",
+    "outDir": "../dist",
     "sourceMap": true,
 
     "module": "commonjs",
@@ -9,7 +9,8 @@
     "noImplicitAny": true,
     "strict": true,
     "target": "es2022",
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "declaration": true
   },
   "include": ["src", "./.eslintrc.js"]
 }
