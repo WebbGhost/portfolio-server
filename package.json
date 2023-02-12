@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "ts-node-dev --respawn --transpile-only src/server.ts",
     "build": "tsc",
-    "start": "node ./dist/application.js",
+    "start": "ts-node-dev --respawn --transpile-only src/server.ts",
     "lint": "eslint src"
   },
   "author": "Shabir Khan",
