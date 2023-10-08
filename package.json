@@ -19,7 +19,7 @@
     "express-mongo-sanitize": "^2.2.0",
     "express-rate-limit": "^6.7.0",
     "helmet": "^6.0.1",
-    "mongoose": "^6.8.4",
+    "mongoose": "^6.11.3",
     "morgan": "^1.10.0",
     "zod": "^3.20.2"
   },
